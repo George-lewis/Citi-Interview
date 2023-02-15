@@ -10,6 +10,9 @@ fn main() {
     let mut start = None;
     let mut segments = vec![0];
 
+    // Safety: We assume the input file is ASCII
+    // In Rust strings are UTF-8, which makes iterating over them a bit more tedious
+    // So this assumption simplifies the implemention, and is in fact implicitly made in Python
     let windows = data.as_bytes().iter().enumerate().tuple_windows();
 
     // Windows are a nice abstraction
